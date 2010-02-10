@@ -1,0 +1,136 @@
+body {
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #333333;
+	line-height: normal;
+	text-transform: none;
+}
+blockquote {
+	padding-right: 75px;
+	padding-left: 75px;
+}
+
+
+p {
+	font-size: 12px;
+	line-height: 20px;
+	color: #333333;
+	text-decoration: none;
+	letter-spacing: normal;
+	word-spacing: normal;
+}
+h2 {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #336633;
+	font-size: 24px;
+}
+
+
+
+.wrapper {
+	position: relative;
+	width: 100%;
+	margin: 0 auto -100px;
+	text-align: left;
+}
+.header {
+	height: 100px;
+	background: url(img/heading_bg.jpg) repeat-x center top;
+	text-align: center;
+	position: relative;
+}
+
+.main {
+	padding: 2px;
+	position: relative;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+
+.nav {
+	text-align: center;
+	padding: 2px;
+	position: relative;
+	width: 940px;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.content {
+	background: url(img/heading_bg2.jpg) repeat-x center top;
+	width: 100%;
+}
+
+.footer {
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+	background: url(img/footer_bg.jpg) repeat-x center top;
+}
+
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+	height: 100px; /* .push must be the same height as .footer */
+}
+h3 {
+	font-weight: bold;
+	text-transform: capitalize;
+	color: #336633;
+	font-size: 20px;
+	margin-top: 0.5em;
+}
+ul {
+
+	font-size: 12px;
+	line-height: 20px;
+	color: #333333;
+	text-decoration: none;
+}
+h4 {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #333300;
+	font-size: 14px;
+	line-height: 24px;
+}
+h1 {
+
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #CC3333;
+	font-size: 26px;
+}
+h5 {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #336633;
+	font-size: 10px;
+	line-height: 24px;
+	text-decoration: none;
+}
+a:link {
+	text-decoration: none;
+	color: #993300;
+	font-weight: bold;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:visited {
+	color: #333333;
+}
