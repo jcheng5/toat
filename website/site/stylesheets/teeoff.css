@@ -13,6 +13,9 @@ body {
 .content {
   padding: 16px; }
 
+.content *:first-child {
+  margin-top: 0px; }
+
 .nav {
   font-size: 9pt;
   background-color: #060;
@@ -26,3 +29,11 @@ body {
   text-transform: uppercase;
   margin-left: 20px;
   margin-right: 20px; }
+
+.footer {
+  font-size: smaller;
+  text-align: center;
+  margin-top: 40px; }
+
+.null-line-height {
+  line-height: 0; }
