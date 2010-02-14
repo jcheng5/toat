@@ -9,7 +9,7 @@
   At
   = link_to 'The Golf Club at Echo Falls', 'http://www.echofallsgolf.com/'
 %p Two options to register:
-%table{:width => '100%'}
+%table{:width => '100%', :class => 'action'}
   %tr
     %td{:width => '50%', :valign => 'top'}
       %b Golfer Registration
@@ -21,7 +21,8 @@
       %b{:style => 'color: red'}
         $150 until April 30th
       %br
-      =link_to 'Register Now', PlayerRegistrationUrl
+      %b<
+        =link_to 'Register Now', PlayerRegistrationUrl
       |
       =link_to 'More Details', 'details.html'
     %td{:width => '50%', :valign => 'top'}
@@ -31,19 +32,19 @@
       %br
       $50
       %br
-      =link_to 'Register Now', BanquetRegistrationUrl
+      %b<
+        =link_to 'Register Now', BanquetRegistrationUrl
       |
       =link_to 'More Details', 'details.html'
 
-%p{ :align => "center" }
-/
-  %nobr
-  %a{ :href => "player.html", :onmouseover => "MM_swapImage('player2','','img/player2_2.png',1)", :onmouseout => "MM_swapImgRestore()" }
-    %img#player2{ :name => "player2", :src => "img/player2_1.png", :vspace => "0", :border => "0", :height => "45", :hspace => "0", :alt => "Become A Player", :width => "227" }
-  %a{ :href => "sponsor.html", :onmouseover => "MM_swapImage('sponsor2','','img/sponsor2_2.png',1)", :onmouseout => "MM_swapImgRestore()" }
-    %img#sponsor2{ :name => "sponsor2", :src => "img/sponsor2_1.png", :vspace => "0", :border => "0", :height => "45", :hspace => "0", :alt => "Become A Sponsor", :width => "227" }
-  %a{ :href => "http://public.serviceu.com/registration/default.asp?OrgID=11910&EventID=4523441&OccID=160730146", :onmouseover => "MM_swapImage('donate','','img/donate_2.png',1)", :onmouseout => "MM_swapImgRestore()", :target => "_blank" }
-    %img#donate{ :name => "donate", :src => "img/donate_1.png", :vspace => "0", :border => "0", :height => "45", :hspace => "0", :alt => "Donate To This Cause", :width => "227" }
+%p
+  You can also 
+  %b<
+    = link_to 'become a sponsor', 'sponsor.html'
+  or
+  = link_to 'make a donation', 'http://public.serviceu.com/registration/default.asp?OrgID=11910&EventID=4523441&OccID=160730146'
+  %nobr>
+  !
 
 %style{:type => 'text/css'}
   :sass
