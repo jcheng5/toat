@@ -1,0 +1,20 @@
+!!! 5
+%html
+  %head
+    %title Eastside Women of Purpose - Tee Off Against Trafficking
+    = stylesheets
+  %body>
+    .null-line-height>
+      %img{:src => 'images/heading.jpg', :width => 836, :height => 100}>
+    .nav
+      = link_to 'Home', 'index.html'
+      = link_to 'Event Details', 'details.html'
+      = link_to 'Our Mission', 'mission.html'
+      = link_to 'Become a Sponsor', 'sponsor.html'
+      = link_to 'Contact Us', 'contact.html'
+    .content
+      = yield
+    .footer
+      %hr{:width => '800', :noshade => :noshade, :size => 1}
+      Tee Off Against Trafficking is a project of
+      = link_to 'Eastside Women of Purpose', 'http://www.eastsidewomenofpurpose.com/'

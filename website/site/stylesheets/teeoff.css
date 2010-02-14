@@ -1,0 +1,28 @@
+body {
+  font-family: Lucida Grande, Lucida Sans Unicode;
+  font-size: 11pt;
+  background-color: #94b15f;
+  background-image: url('../images/bg.png');
+  background-repeat: repeat-y;
+  background-position: center;
+  width: 836px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: hidden; }
+
+.content {
+  padding: 16px; }
+
+.nav {
+  font-size: 9pt;
+  background-color: #060;
+  text-align: center;
+  padding: 4px; }
+
+.nav a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-left: 20px;
+  margin-right: 20px; }

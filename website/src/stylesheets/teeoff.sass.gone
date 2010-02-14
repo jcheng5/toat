@@ -1,0 +1,66 @@
+body
+  text-align: center
+  font-family: Lucida Grande, Verdana, Arial, Helvetica, sans-serif
+  font-size: 10pt
+  color: #333333
+  line-height: normal
+  text-transform: none
+  margin: 0
+
+.wrapper
+  position: relative
+  width: 100%
+  margin: 0 auto -100px
+  text-align: left
+
+
+.header
+  height: 100px
+  background: url(../img/heading_bg.jpg) repeat-x center top
+  text-align: center
+  position: relative
+
+
+.main
+  padding: 2px
+  position: relative
+  width: 800px
+  margin-left: auto
+  margin-right: auto
+
+
+.nav
+  text-align: center
+  padding: 2px
+  position: relative
+  width: 940px
+  margin-left: auto
+  margin-right: auto
+
+
+.content
+  background: url(../img/heading_bg2.jpg) repeat-x center top
+  width: 100%
+
+.footer
+  position: relative
+  width: 100%
+  margin: 0 auto
+  background: url(../img/footer_bg.jpg) repeat-x center top
+
+html, body
+  height: 100%
+
+
+.wrapper
+  min-height: 100%
+  height: auto !important
+  height: 100%
+  margin: 0 auto -100px
+
+
+.footer, .push
+  height: 100px
+
+ul.spaced li
+  margin-bottom: 1em
