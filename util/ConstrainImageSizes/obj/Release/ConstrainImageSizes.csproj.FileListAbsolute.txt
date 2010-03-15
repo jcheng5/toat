@@ -1,0 +1,5 @@
+C:\Users\Amy\Documents\toatsite\util\ConstrainImageSizes\bin\Release\ConstrainImageSizes.exe
+C:\Users\Amy\Documents\toatsite\util\ConstrainImageSizes\bin\Release\ConstrainImageSizes.pdb
+C:\Users\Amy\Documents\toatsite\util\ConstrainImageSizes\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Amy\Documents\toatsite\util\ConstrainImageSizes\obj\Release\ConstrainImageSizes.exe
+C:\Users\Amy\Documents\toatsite\util\ConstrainImageSizes\obj\Release\ConstrainImageSizes.pdb

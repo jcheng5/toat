@@ -1,0 +1,2 @@
+cornerstone.png	200	112
+lexus_bellevue.png	195	125

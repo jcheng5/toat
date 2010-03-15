@@ -1,0 +1,10 @@
+C:\Users\Amy\AppData\Local\Temporary Projects\DumpImageSize\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Amy\AppData\Local\Temporary Projects\DumpImageSize\bin\Release\DumpImageSize.exe
+C:\Users\Amy\AppData\Local\Temporary Projects\DumpImageSize\bin\Release\DumpImageSize.pdb
+C:\Users\Amy\AppData\Local\Temporary Projects\DumpImageSize\obj\Release\DumpImageSize.exe
+C:\Users\Amy\AppData\Local\Temporary Projects\DumpImageSize\obj\Release\DumpImageSize.pdb
+C:\Users\Amy\Documents\toatsite\util\DumpImageSize\obj\Release\DumpImageSize.exe
+C:\Users\Amy\Documents\toatsite\util\DumpImageSize\obj\Release\DumpImageSize.pdb
+C:\Users\Amy\Documents\toatsite\util\DumpImageSize\bin\Release\DumpImageSize.exe
+C:\Users\Amy\Documents\toatsite\util\DumpImageSize\bin\Release\DumpImageSize.pdb
+C:\Users\Amy\Documents\toatsite\util\DumpImageSize\obj\Release\ResolveAssemblyReference.cache
