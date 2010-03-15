@@ -1,0 +1,71 @@
+%h1 Sponsors
+
+%style{:type => 'text/css'}
+  :sass
+    .sponsor
+      img
+        margin: 0 20px 20px 0
+        vertical-align: middle
+    .thankyou
+      width: 75%
+
+.thankyou
+  %p
+    Special thanks to our sponsors! The following businesses have stepped
+    up to help put an end to human trafficking. Please take a moment to
+    click on their logos and learn more about the goods and services they
+    offer.
+  %p
+    Your business can join the fight, too!
+    = link_to 'Click here', 'sponsor.html'
+    for details.
+
+= begin_sponsors
+
+/ = sponsor("Redmond Marriott Town Center", "http://www.marriott.com/hotels/travel/seamc-redmond-marriott-town-center/", "marriott.png")
+/ = sponsor("Oki Golf", "okigolf.com", "oki_golf.png")
+/ = sponsor("McDonald's", "www.mcdonalds.com", "mcdonalds.png")
+
+/ %h4 Presenting Sponsors
+
+%h4 Sign Sponsors
+= sponsor("Zorko Electric", "www.zorkoelectric.com", "zorko.png")
+
+%h4 Cart Sponsors
+= sponsor("Homestar Security", "http://www.homestarsecurity.com/", "adt_homestar_security.png")
+= sponsor("Miller Nash LLP", "http://www.millernash.com/", "miller_nash.png")
+
+%h4 Hole &amp; Tee Sponsors
+= sponsor("Duke's Truck Repair", "http://www.bing.com/local/Details.aspx?lid=YN926x15836508&q=duke's%20truck%20repair&qt=yp&tid=7024b3aedc6a4668b4a4c7d0538e1e94&mkt=en-us&FORM=LLSV", "dukes_truck_repair.png")
+= sponsor("Watermark Credit Union", "https://www.watermarkcu.org/", "watermark.png")
+= sponsor("William J. Peterson, DDS, PLLC - General Dentistry", "http://www.wellness.com/dir/2330015/dentist/wa/bellevue/peterson-william-j-dds-pllc", "peterson.jpg")
+
+/ %h4 Snack Shack Sponsors
+
+/ %h4 Beverage Cart Sponsors
+
+/ %h4 Player Sponsors
+
+/ %h4 Prize Sponsors
+
+%h4 Gift Bag Sponsors
+= sponsor("Pro Golf Discount", "progolfseattle.com", "progolfdiscount.jpg")
+
+/ %h4 Banquet &amp; Auction Sponsor(s)
+
+%h4 Beverage Sponsors
+= sponsor("Cornerstone Family Health Clinic", "cornerstonehealthclinic.com", "cornerstone.png")
+
+/ %h4 Silent Auction Sponsors
+
+/ %h4 Table Sponsors
+
+%h4 Auction Item Sponsors
+= sponsor("The Big Fish Grill", "http://www.thebigfishgrill.com", "big_fish.png")
+= sponsor("Hotel Sierra", "http://www.hotel-sierra.com/locations/redmond/default.aspx", "hotel_sierra.png")
+= sponsor("Lexus of Bellevue", "www.lexusofbellevue.com", "lexus_bellevue.png")
+= sponsor("Rena Ware International", "www.renaware.com", "renaware.jpg")
+= sponsor("TaylorMade", "http://www.taylormadegolf.com", "taylormade.png")
+= sponsor("Tillamook Cheese", "http://www.tillamookcheese.com/", "tillamook.png")
+
+= end_sponsors

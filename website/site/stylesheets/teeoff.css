@@ -23,15 +23,16 @@ a {
   font-size: 9pt;
   background-color: #060;
   text-align: center;
-  padding: 4px; }
+  padding: 4px;
+  line-height: 1.3em; }
 
 .nav a {
   color: white;
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
-  margin-left: 20px;
-  margin-right: 20px; }
+  margin-left: 15px;
+  margin-right: 15px; }
 
 .footer {
   font-size: smaller;

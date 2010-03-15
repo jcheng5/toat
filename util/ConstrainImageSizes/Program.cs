@@ -60,6 +60,8 @@ namespace ConstrainImageSizes
                         break;
                     case ".png":
                     case ".gif":
+                    case ".tif":
+                    case ".bmp":
                         Resize(file, outdir, false);
                         break;
                 }
@@ -90,6 +92,8 @@ namespace ConstrainImageSizes
                         newImage.Save(dest, ImageFormat.Jpeg);
                     else
                         newImage.Save(dest, ImageFormat.Png);
+
+                    Console.WriteLine("{0} - {1}x{2}", dest, newSize.Width, newSize.Height);
                 }
             }
         }
