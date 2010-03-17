@@ -7,6 +7,8 @@ lexus_bellevue.png	133	85
 marriott.png	168	85
 mcdonalds.png	106	85
 miller_nash.png	200	84
+nintendo.png	200	52
+ogio.png	200	44
 oki_golf.png	200	75
 peterson.jpg	149	85
 progolfdiscount.jpg	158	67
