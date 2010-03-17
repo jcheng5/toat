@@ -15,5 +15,6 @@ progolfdiscount.jpg	158	67
 renaware.jpg	147	85
 taylormade.png	200	38
 tillamook.png	200	23
+tims.png	128	85
 watermark.png	200	40
 zorko.png	100	85
