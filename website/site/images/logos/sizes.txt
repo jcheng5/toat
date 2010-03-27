@@ -1,9 +1,12 @@
 adt_homestar_security.png	200	40
 big_fish.png	129	85
 cornerstone.png	152	85
+discounttire.png	200	58
 dukes_truck_repair.png	145	85
 hotel_sierra.png	200	45
+inrix.jpg	200	61
 lexus_bellevue.png	133	85
+marketleader.png	200	46
 marriott.png	168	85
 mcdonalds.png	106	85
 miller_nash.png	200	84
@@ -13,8 +16,11 @@ oki_golf.png	200	75
 peterson.jpg	149	85
 progolfdiscount.jpg	158	67
 renaware.jpg	147	85
+smas.png	200	85
+sounddesign.png	194	85
 taylormade.png	200	38
 tillamook.png	200	23
 tims.png	128	85
 watermark.png	200	40
+watson.jpg	200	51
 zorko.png	100	85
