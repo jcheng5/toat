@@ -3,12 +3,15 @@ big_fish.png	129	85
 cornerstone.png	152	85
 discounttire.png	200	58
 dukes_truck_repair.png	145	85
+fusion.png	200	67
+hermanmiller.png	200	24
 hotel_sierra.png	200	45
 inrix.jpg	200	61
 lexus_bellevue.png	133	85
+lululemon.png	200	72
 marketleader.png	200	46
 marriott.png	168	85
-mcdonalds.png	106	85
+mcdonalds.png	86	85
 miller_nash.png	200	84
 nintendo.png	200	52
 ogio.png	200	44
