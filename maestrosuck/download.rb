@@ -5,18 +5,28 @@
 
 require 'rubygems'
 require 'hpricot'
+I_KNOW_I_AM_USING_AN_OLD_AND_BUGGY_VERSION_OF_LIBXML2 = true
 require 'mechanize'
 require 'pp'
 require 'highline/import'
-#require 'uri'
-#require 'net/http'
-#require 'net/https'
+require 'haml'
+require 'optparse'
 
 $agent = Mechanize.new
 
 class NilClass
   def content()
     nil
+  end
+end
+
+class Hash2Object
+  def initialize(hash)
+    @hash = hash
+  end
+  def method_missing(symbol, *args)
+    return super(symbol, args) if args.length > 0
+    @hash[symbol]
   end
 end
 
@@ -32,7 +42,7 @@ def get_item(id)
   item = $agent.get("https://secure.maestroweb.com/Details.aspx?OrgID=929&ItemID=#{id}&selection=36")
   return nil unless item.search('#lblItemName').first
   data = {
-    :id => id,
+    :itemid => id,
     :name => item.search('#lblItemName').first.content,
     :desc => item.search('#lblItemDesc').first.content,
     :value => item.search('#lblItemValue').first.content,
@@ -55,9 +65,43 @@ def download_url(url)
   end
 end
 
-password = ask("Password: ") {|q| q.echo='*'}
-login('Cheng', password)
 
-100.times do |i|
-  item = get_item(i)
+options = {}
+optparse = OptionParser.new do |opts|
+  opts.banner = "Usage: download.rb -u username -p password"
+  
+  opts.on('-u', '--username USERNAME', 'Specify the username') do |username|
+    options[:username] = username
+  end
+  opts.on('-p', '--password PASSWORD', 'Specify the password') do |password|
+    options[:password] = password
+  end
 end
+optparse.parse!
+
+login(options[:username], options[:password])
+
+items = []
+20.times do |i|
+  item = get_item(i)
+  items << Hash2Object.new(item) if item
+end
+
+template = <<EOD
+!!! 5
+%html
+  %head
+    %link(rel='stylesheet' type='text/css' href='styles.css')
+    %link(rel='stylesheet' type='text/css' href='printstyles.css' media='print')
+  %body
+    - items.each do |item|
+      .item
+        %img.picture{:src => item.img}
+        .id&= item.itemid
+        .name&= item.name
+        .desc&= item.desc
+        .value&= item.value
+        .donor&= item.donor
+EOD
+haml = Haml::Engine.new(template)
+print haml.render(Object.new, :items => items)
