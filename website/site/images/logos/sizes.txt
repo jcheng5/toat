@@ -6,6 +6,7 @@ big_fish.png	129	85
 caffeumbria.png	91	85
 cornerstone.png	152	85
 crossroadsappliance.png	200	39
+customspecialized.png   120   85
 diecutstickers.png	108	85
 discounttire.png	200	58
 dukes_truck_repair.png	145	85
