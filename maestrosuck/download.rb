@@ -9,10 +9,14 @@ I_KNOW_I_AM_USING_AN_OLD_AND_BUGGY_VERSION_OF_LIBXML2 = true
 require 'mechanize'
 require 'pp'
 require 'highline/import'
+<<<<<<< HEAD
 require 'builder'
 #require 'uri'
 #require 'net/http'
 #require 'net/https'
+=======
+require 'haml'
+require 'optparse'
 
 $agent = Mechanize.new
 
