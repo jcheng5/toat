@@ -17,6 +17,7 @@ hermanmiller.png	200	24
 hotel_sierra.png	200	45
 inrix.jpg	200	61
 kitchenplus.jpg	200	47
+kompactkarkorner.png	200	65
 lexus_bellevue.png	133	85
 lululemon.png	200	72
 marketleader.png	200	46
