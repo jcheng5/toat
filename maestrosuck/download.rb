@@ -9,12 +9,10 @@ I_KNOW_I_AM_USING_AN_OLD_AND_BUGGY_VERSION_OF_LIBXML2 = true
 require 'mechanize'
 require 'pp'
 require 'highline/import'
-<<<<<<< HEAD
 require 'builder'
 #require 'uri'
 #require 'net/http'
 #require 'net/https'
-=======
 require 'haml'
 require 'optparse'
 
@@ -48,23 +46,36 @@ def get_item(id)
   item = $agent.get("https://secure.maestroweb.com/Details.aspx?OrgID=929&ItemID=#{id}&selection=36")
   return nil unless item.search('#lblItemName').first
   
-  img_url = nil
-  img_remote_url = 'https://secure.maestroweb.com/' + item.search('#imgItem').first['src']
-  img_file = 'images/' + File.basename(img_remote_url)
-  begin
-    $agent.get(img_remote_url).save(img_file)
-    img_url = 'file:///' + File.join(Dir.pwd, img_file)
-  rescue
+  item.search("#lblItemDesc br").each do |node|
+    node.before("___BREAK___")
   end
   
   data = {
     :id => id,
     :name => item.search('#lblItemName').first.content.strip,
-    :desc => item.search('#lblItemDesc').first.content.strip,
+    :desc => item.search('#lblItemDesc').first.content.gsub(/___BREAK___/, "\n").strip,
     :value => item.search('#lblItemValue').first.content.strip,
-    :donor => item.search('#lblItemDonors').first.content.strip,
-    :img => img_url
+    :donor => item.search('#lblItemDonors').first.content.strip
   }
+  
+  return nil unless (data[:name] =~ /^S - /)
+  data[:name].gsub!(/^S - /, '')
+  
+  img_url = nil
+  img_src = item.search('#imgItem').first['src']
+  if img_src !~ /\bdefault\.gif$/
+    img_remote_url = 'https://secure.maestroweb.com/' + img_src
+    img_file = 'images/' + File.basename(img_remote_url)
+    begin
+      $agent.get(img_remote_url).save(img_file)
+      img_url = 'file:///' + File.join(Dir.pwd, img_file)
+    rescue
+    end
+  end
+  
+  data[:img] = img_url
+  
+  data
 end
 
 def download_url(url)
@@ -81,7 +92,7 @@ def download_url(url)
   end
 end
 
-password = ask("Password: ") {|q| q.echo='*'}
+password = gets #ask("Password: ") {|q| q.echo='*'}
 login('Cheng', password)
 
 xml = Builder::XmlMarkup.new(:target=>STDOUT, :indent=>0)
