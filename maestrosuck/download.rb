@@ -55,11 +55,18 @@ def get_item(id)
     :name => item.search('#lblItemName').first.content.strip,
     :desc => item.search('#lblItemDesc').first.content.gsub(/___BREAK___/, "\n").strip,
     :value => item.search('#lblItemValue').first.content.strip,
-    :donor => item.search('#lblItemDonors').first.content.strip
+    :donor => item.search('#lblItemDonors').first.content.strip,
+    :tag => ''
   }
   
-  return nil unless (data[:name] =~ /^S - /)
-  data[:name].gsub!(/^S - /, '')
+  $stderr.puts data[:name]
+  #return nil unless (data[:name] =~ /^S - /)
+  #data[:name].gsub!(/^S - /, '')
+  if data[:name] =~ /^(.) - (.+)$/
+   data[:tag] = $1
+   data[:name] = $2
+  end
+  return nil unless data[:tag] == 'L'
   
   img_url = nil
   img_src = item.search('#imgItem').first['src']
@@ -97,25 +104,29 @@ login('Cheng', password)
 
 xml = Builder::XmlMarkup.new(:target=>STDOUT, :indent=>0)
 xml.Root do |root|
-  150.times do |i|
+  200.times do |i|
     item = get_item(i)
-    $stderr.print(item ? '1' : '0')
+    #$stderr.print(item ? '1' : '0')
     next unless item
     root.item do |b|
       b.image(:href => item[:img])
+      puts
+      b.tag(item[:tag])
       puts
       b.name(item[:name])
       puts
       b.desc(item[:desc])
       puts
-      b.value_label("Value: ")
+      #b.value_label("Value: ")
       b.value(item[:value])
       puts
-      b.donor_label("Donated by: ")
+      #b.donor_label("Donated by: ")
       b.donor(item[:donor])
       puts
       #b.id("Auction lot #{item[:id]}")
       #puts
+      b.id(item[:id])
+      puts
     end
   end
 end
