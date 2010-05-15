@@ -1,0 +1,10 @@
+<PatchRules>
+  <Sandbox>
+    <Category>S</Category>
+    <OutputAuctionDisplay>output_display.xml</OutputAuctionDisplay>
+  </Sandbox>
+  <Sandbox>
+    <Category>LS</Category>
+    <OutputBooklet>output_booklet.xml</OutputBooklet>
+  </Sandbox>
+</PatchRules>

@@ -1,0 +1,1 @@
+XmlPatch /include:. Rules.xml < ../data.xml > nul

@@ -66,7 +66,6 @@ def get_item(id)
    data[:tag] = $1
    data[:name] = $2
   end
-  return nil unless data[:tag] == 'L'
   
   img_url = nil
   img_src = item.search('#imgItem').first['src']
