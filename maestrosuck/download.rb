@@ -114,8 +114,8 @@ xml.Root do |root|
       b.donor_label("Donated by: ")
       b.donor(item[:donor])
       puts
-      b.id("Auction lot #{item[:id]}")
-      puts
+      #b.id("Auction lot #{item[:id]}")
+      #puts
     end
   end
 end
