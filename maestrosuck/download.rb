@@ -60,6 +60,7 @@ def get_item(id)
   }
   
   $stderr.puts data[:name]
+  
   #return nil unless (data[:name] =~ /^S - /)
   #data[:name].gsub!(/^S - /, '')
   if data[:name] =~ /^(.) - (.+)$/
@@ -67,19 +68,34 @@ def get_item(id)
    data[:name] = $2
   end
   
-  img_url = nil
+  img_urls = []
+  
   img_src = item.search('#imgItem').first['src']
   if img_src !~ /\bdefault\.gif$/
     img_remote_url = 'https://secure.maestroweb.com/' + img_src
     img_file = 'images/' + File.basename(img_remote_url)
     begin
       $agent.get(img_remote_url).save(img_file)
-      img_url = 'file:///' + File.join(Dir.pwd, img_file)
+      img_urls.push 'file:///' + File.join(Dir.pwd, img_file)
     rescue
     end
   end
   
-  data[:img] = img_url
+  item.parser.to_s.scan(/Pic\[\d\] = '([^']+)';/) do |match|
+    img_remote_url = 'https://secure.maestroweb.com/' + $1
+    img_file = 'images/' + File.basename(img_remote_url)
+    begin
+      img_path = 'file:///' + File.join(Dir.pwd, img_file)
+      if !img_urls.member?(img_path)
+        $agent.get(img_remote_url).save(img_file)
+        img_urls.push(img_path)
+        $stderr.puts(img_path)
+      end
+    rescue
+    end
+  end
+  
+  data[:img] = img_urls
   
   data
 end
@@ -108,7 +124,9 @@ xml.Root do |root|
     #$stderr.print(item ? '1' : '0')
     next unless item
     root.item do |b|
-      b.image(:href => item[:img])
+      item[:img].each do |img|
+        b.image(:href => img)
+      end
       puts
       b.tag(item[:tag])
       puts

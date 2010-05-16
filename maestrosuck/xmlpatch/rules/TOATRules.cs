@@ -57,7 +57,7 @@ namespace XmlPatch.PatchRules
             foreach (XmlElement el in doc.SelectNodes("/Root/item"))
             {
                 writer.WriteStartElement("image");
-                writer.WriteAttributeString("href", el.SelectSingleNode("image/@href").Value);
+                writer.WriteAttributeString("href", ValueOrNothing(el.SelectSingleNode("image/@href")));
                 writer.WriteEndElement();
                 writer.WriteWhitespace("\n");
 
@@ -72,6 +72,11 @@ namespace XmlPatch.PatchRules
 
             writer.WriteEndElement();
             writer.Close();
+        }
+
+        private string ValueOrNothing(XmlNode node)
+        {
+            return node != null ? node.Value : "";
         }
 
         private void WriteLn(XmlWriter writer, string name, XmlElement el)
@@ -91,10 +96,12 @@ namespace XmlPatch.PatchRules
 
             writer.WriteStartElement("Root");
 
+            int order = 1;
             foreach (XmlElement el in doc.SelectNodes("/Root/item"))
             {
                 string tag = el.SelectSingleNode("tag/text()").Value;
-                string prefix = tag == "L" ? "live_" : "";
+                bool live = tag == "L";
+                string prefix = live ? "live_" : "";
 
                 /*
                 writer.WriteStartElement("image");
@@ -103,10 +110,24 @@ namespace XmlPatch.PatchRules
                 writer.WriteWhitespace("\n");
                  */
 
+                if (live)
+                {
+                    writer.WriteElementString(prefix + "order", order++.ToString());
+                    writer.WriteWhitespace("\n");
+                }
                 WriteLn(writer, "name", el, prefix);
+                if (live)
+                {
+                    foreach (XmlElement image in el.SelectNodes("image"))
+                    {
+                        writer.WriteRaw(image.OuterXml);
+                    }
+                    writer.WriteWhitespace("\n");
+                }
                 WriteLn(writer, "desc", el, prefix);
-                WriteLn(writer, "donor", el, prefix);
+                WriteLn(writer, "donor", el, prefix, "Donated by ");
                 writer.WriteElementString(prefix + "value", "Value: " + el.SelectSingleNode("value/text()").Value);
+                writer.WriteElementString(prefix + "id", "\tAuction ID #: " + el.SelectSingleNode("id/text()").Value);
                 writer.WriteWhitespace("\n");
             }
 
@@ -116,8 +137,29 @@ namespace XmlPatch.PatchRules
 
         private void WriteLn(XmlWriter writer, string name, XmlElement el, string prefix)
         {
-            writer.WriteElementString(prefix + name, el.SelectSingleNode(name).InnerText);
+            WriteLn(writer, name, el, prefix, "");
+        }
+        private void WriteLn(XmlWriter writer, string name, XmlElement el, string prefix, string valuePrefix)
+        {
+            writer.WriteElementString(prefix + name, valuePrefix + el.SelectSingleNode(name).InnerText);
             writer.WriteWhitespace("\n");
+        }
+    }
+
+    public class LiveAuctionSortRule : PatchRule
+    {
+        public override void Patch(XmlElement directive, ref XmlDocument doc)
+        {
+            string[] ids = directive.InnerText.Split(',');
+            Array.Reverse(ids);
+            foreach (string strId in ids)
+            {
+                int id = int.Parse(strId);
+                XmlNode node = doc.SelectSingleNode("/Root/item[id/text() = '" + id + "']");
+                doc.DocumentElement.InsertAfter(
+                    doc.DocumentElement.RemoveChild(node),
+                    null);
+            }
         }
     }
 }
