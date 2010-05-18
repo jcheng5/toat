@@ -45,15 +45,24 @@ end
 def get_item(id)
   item = $agent.get("https://secure.maestroweb.com/Details.aspx?OrgID=929&ItemID=#{id}&selection=36")
   return nil unless item.search('#lblItemName').first
+  item_e = $agent.get("https://secure.maestroweb.com/items/Edit.aspx?ItemID=#{id}&OrgID=929")
   
   item.search("#lblItemDesc br").each do |node|
     node.before("___BREAK___")
   end
+  item_e.search("#MyItemList_ctl00_lblRestrictions br").each do |node|
+    node.before("___BREAK___")
+  end
+  
+  restrictions = item_e.search('#MyItemList_ctl00_lblRestrictions').first.content || ""
+  restrictions.gsub!(/___BREAK___/, "\n")
+  restrictions.strip!
   
   data = {
     :id => id,
     :name => item.search('#lblItemName').first.content.strip,
     :desc => item.search('#lblItemDesc').first.content.gsub(/___BREAK___/, "\n").strip,
+    :restrictions => restrictions,
     :value => item.search('#lblItemValue').first.content.strip,
     :donor => item.search('#lblItemDonors').first.content.strip,
     :tag => ''
@@ -89,7 +98,7 @@ def get_item(id)
       if !img_urls.member?(img_path)
         $agent.get(img_remote_url).save(img_file)
         img_urls.push(img_path)
-        $stderr.puts(img_path)
+        #$stderr.puts(img_path)
       end
     rescue
     end
@@ -119,7 +128,7 @@ login('Cheng', password)
 
 xml = Builder::XmlMarkup.new(:target=>STDOUT, :indent=>0)
 xml.Root do |root|
-  200.times do |i|
+  220.times do |i|
     item = get_item(i)
     #$stderr.print(item ? '1' : '0')
     next unless item
@@ -133,6 +142,8 @@ xml.Root do |root|
       b.name(item[:name])
       puts
       b.desc(item[:desc])
+      puts
+      b.restrictions(item[:restrictions])
       puts
       #b.value_label("Value: ")
       b.value(item[:value])

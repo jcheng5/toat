@@ -56,6 +56,8 @@ namespace XmlPatch.PatchRules
 
             foreach (XmlElement el in doc.SelectNodes("/Root/item"))
             {
+                writer.WriteStartElement("item");
+
                 writer.WriteStartElement("image");
                 writer.WriteAttributeString("href", ValueOrNothing(el.SelectSingleNode("image/@href")));
                 writer.WriteEndElement();
@@ -63,11 +65,23 @@ namespace XmlPatch.PatchRules
 
                 WriteLn(writer, "name", el);
                 WriteLn(writer, "desc", el);
+
+                XmlElement restrictions = (XmlElement) el.SelectSingleNode("restrictions[string(.)]");
+                if (restrictions != null)
+                {
+                    writer.WriteElementString("restrictions_label", "Restrictions: ");
+                    WriteLn(writer, "restrictions", el);
+                }
+
                 writer.WriteElementString("value_label", "Value: ");
                 WriteLn(writer, "value", el);
                 writer.WriteElementString("donor_label", "Donated by: ");
                 WriteLn(writer, "donor", el);
+                writer.WriteElementString("id", "\tAuction ID #: " + el.SelectSingleNode("id/text()").Value);
+                writer.WriteWhitespace("\n");
                 //WriteLn(writer, "id", el);
+
+                writer.WriteEndElement();
             }
 
             writer.WriteEndElement();

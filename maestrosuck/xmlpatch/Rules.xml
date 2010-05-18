@@ -3,12 +3,12 @@
     <Category>S</Category>
     <OutputAuctionDisplay>output_display.xml</OutputAuctionDisplay>
   </Sandbox>
+  <!--
   <Sandbox>
     <Category>LS</Category>
-    <!-- Mariners are missing (they should go in after 170) -->
     <LiveAuctionSort>128,108,155,145,161,142,96,170,121,159,93,126,77</LiveAuctionSort>
-    <!-- 94 is a dupe of 93, remove? -->
     <RemoveElement Select="/Root/item[id/text()='94']"/>
     <OutputBooklet>output_booklet.xml</OutputBooklet>
   </Sandbox>
+  -->
 </PatchRules>
