@@ -1,51 +1,71 @@
+/* line 1 */
 body {
   font-family: Lucida Grande, Lucida Sans Unicode, Verdana, Helvetica, Arial, sans-serif;
   font-size: 11pt;
   background-color: #94b15f;
-  background-image: url('../images/bg.png');
+  background-image: url("../images/bg.png");
   background-repeat: repeat-y;
   background-position: center;
   width: 836px;
   margin-left: auto;
   margin-right: auto;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+}
 
+/* line 17 */
 a {
-  color: #006000; }
+  color: #006000;
+}
 
+/* line 20 */
 .content {
-  padding: 16px; }
+  padding: 16px;
+}
 
+/* line 22 */
 .content *:first-child {
-  margin-top: 0px; }
+  margin-top: 0px;
+}
 
+/* line 25 */
 .nav {
   font-size: 9pt;
-  background-color: #060;
+  background-color: #006600;
   text-align: center;
   padding: 4px;
-  line-height: 1.3em; }
+  line-height: 1.3em;
+}
 
+/* line 32 */
 .nav a {
   color: white;
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
   margin-left: 15px;
-  margin-right: 15px; }
+  margin-right: 15px;
+}
 
+/* line 43 */
 .footer {
   font-size: smaller;
   text-align: center;
-  margin-top: 40px; }
+  margin-top: 40px;
+}
 
+/* line 50 */
 .null-line-height {
-  line-height: 0; }
+  line-height: 0;
+}
 
+/* line 53 */
 table.action {
   margin-top: -20px;
-  border-spacing: 20px; }
+  border-spacing: 20px;
+}
 
+/* line 56 */
 table.action td {
   padding: 12px;
-  border: 2px solid #060; }
+  border: 2px solid #006600;
+}
