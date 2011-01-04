@@ -1,4 +1,0 @@
-AuthName "Tee Off Against Trafficking"
-AuthType Basic
-AuthUserFile /home/occsoft/toat_htpasswd
-Require valid-user

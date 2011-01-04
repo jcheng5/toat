@@ -7,43 +7,51 @@
   At
   = link_to 'Washington National Golf Club', 'http://www.washingtonnationalgolfclub.com/'
 
-%p
-  %b See our <a href="auction.html">auction item list</a>!
-
-%p Two options to register:
-%table{:width => '100%', :class => 'action'}
-  %tr
-    %td{:width => '50%', :valign => 'top'}
-      %b Golfer Registration
-      %br
-      Tournament, banquet, and auction
-      %br
-      $200
-      %br
-      %b<
-        =link_to 'Register Now', PlayerRegistrationUrl
-      |
-      =link_to 'More Details', 'details.html'
-    %td{:width => '50%', :valign => 'top'}
-      %b Non-Golfer Registration
-      %br
-      Banquet and auction only
-      %br
-      $50
-      %br
-      %b<
-        =link_to 'Register Now', BanquetRegistrationUrl
-      |
-      =link_to 'More Details', 'details.html'
+%h5
+  Please consider becoming a
+  = link_to('sponsor', 'sponsor.html') + '!'
 
 %p
-  You can also 
-  %b<
-  -#  = link_to 'become a sponsor', 'sponsor.html'
-  -#or
-  = link_to 'make a donation', 'http://public.serviceu.com/registration/default.asp?OrgID=11910&EventID=4523441&OccID=160730146'
-  %nobr>
-  !
+  (More details for players coming soon.)
+
+/
+  %p
+    %b See our <a href="auction.html">auction item list</a>!
+
+  %p Two options to register:
+  %table{:width => '100%', :class => 'action'}
+    %tr
+      %td{:width => '50%', :valign => 'top'}
+        %b Golfer Registration
+        %br
+        Tournament, banquet, and auction
+        %br
+        $200
+        %br
+        %b<
+          =link_to 'Register Now', PlayerRegistrationUrl
+        |
+        =link_to 'More Details', 'details.html'
+      %td{:width => '50%', :valign => 'top'}
+        %b Non-Golfer Registration
+        %br
+        Banquet and auction only
+        %br
+        $50
+        %br
+        %b<
+          =link_to 'Register Now', BanquetRegistrationUrl
+        |
+        =link_to 'More Details', 'details.html'
+
+  %p
+    You can also 
+    %b<
+    -#  = link_to 'become a sponsor', 'sponsor.html'
+    -#or
+    = link_to 'make a donation', 'http://public.serviceu.com/registration/default.asp?OrgID=11910&EventID=4523441&OccID=160730146'
+    %nobr>
+    !
 
 %style{:type => 'text/css'}
   :sass
