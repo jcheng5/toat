@@ -6,7 +6,7 @@ big_fish.png	129	85
 caffeumbria.png	91	85
 cornerstone.png	152	85
 crossroadsappliance.png	200	39
-customspecialized.png   120   85
+customspecialized.png	120	85
 diecutstickers.png	108	85
 discounttire.png	200	58
 dukes_truck_repair.png	145	85
@@ -32,11 +32,14 @@ peterson.jpg	149	85
 progolfdiscount.jpg	158	67
 renaware.jpg	147	85
 sahalesnacks.png	187	85
+shuttleexpress.png	200	31
 smas.png	200	85
 sounddesign.png	194	85
+substance.png	200	51
 taylormade.png	200	38
 tillamook.png	200	23
 tims.png	128	85
 watermark.png	200	40
 watson.jpg	200	51
+wellsfargo.png	85	85
 zorko.png	100	85
